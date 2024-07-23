@@ -7,17 +7,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sipa.boot.core.allinone.SipaRequest;
 import com.sipa.boot.feign.allinone.SipaApi;
-import com.sipa.tcp.creator.entity.Message;
+import com.sipa.tcp.creator.entity.PrintTemplate;
 
 /**
  * @author caszhou
- * @date 2023-06-14
+ * @date 2024-07-23
  */
-@SipaApi(tag = "Message控制器", name = "message-service-server", contextId = "messageApi",
-    path = MessageApi.MappingConstant.PATH)
-public interface MessageApi {
+@SipaApi(tag = "PrintTemplate控制器", name = "ams-service", contextId = "printTemplateApi",
+    path = PrintTemplateApi.MappingConstant.PATH)
+public interface PrintTemplateApi {
     interface MappingConstant {
-        String PATH = "/message";
+        String PATH = "/print-template";
 
         String PAGE = "";
 
@@ -31,18 +31,18 @@ public interface MessageApi {
     }
 
     @SipaRequest.GetMapping(summary = "分页查询", path = MappingConstant.PAGE)
-    Page<Message> list(@RequestParam(required = false) Integer current,
+    Page<PrintTemplate> list(@RequestParam(required = false) Integer current,
         @RequestParam(required = false) Integer pageSize);
 
     @SipaRequest.GetMapping(summary = "详情", path = MappingConstant.DETAIL)
-    Message getById(@PathVariable("id") String id);
+    PrintTemplate getById(@PathVariable("id") String id);
 
     @SipaRequest.PostMapping(summary = "新增", path = MappingConstant.CREATE)
-    Object create(@RequestBody Message payload);
+    Object create(@RequestBody PrintTemplate payload);
 
     @SipaRequest.DeleteMapping(summary = "删除", path = MappingConstant.DELETE)
     Object delete(@PathVariable("id") String id);
 
     @SipaRequest.PutMapping(summary = "更新", path = MappingConstant.UPDATE)
-    Object update(@RequestBody Message payload);
+    Object update(@RequestBody PrintTemplate payload);
 }

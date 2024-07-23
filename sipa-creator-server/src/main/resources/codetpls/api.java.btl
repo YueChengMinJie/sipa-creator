@@ -48,7 +48,7 @@ public interface ${table.entityName}Api {
     <% if(isNotEmpty(controllerMethods.list)){  %>
 
     @SipaRequest.GetMapping(summary = "分页查询", path = MappingConstant.PAGE)
-    Page<Message> list(@RequestParam(required = false) Integer current,
+    Page<${table.entityName}> list(@RequestParam(required = false) Integer current,
         @RequestParam(required = false) Integer pageSize);
     <% } %>
     <% if(isNotEmpty(controllerMethods.getById)){ %>

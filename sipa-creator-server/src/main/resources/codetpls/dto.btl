@@ -1,0 +1,56 @@
+package ${config.pkg};
+
+import java.io.Serializable;
+<% for(pkg in config.importPackages){ %>
+import ${pkg};
+<% } %>
+<% if(config.enableLombok){ %>
+import lombok.Data;
+<% } %>
+
+/**
+ * ${config.comment!}
+ *
+ * @author ${config.author}
+ * @date ${config.createDate}
+ */
+<% if(config.enableLombok){ %>
+@Data
+<% } %>
+public class ${config.dtoName} implements Serializable {
+    private static final long serialVersionUID = 1L;
+<% /** -----------BEGIN 字段循环遍历----------- **/ %>
+<% for(field in config.fields){ %>
+
+    <%/*字段定义*/%>
+    private ${field.shortJavaType} ${field.propertyName};
+<% } %>
+<% /** -----------END 字段循环遍历----------- **/ %>
+<% if(!config.enableLombok){ %>
+    <% for(field in config.fields){ %>
+
+    public ${field.shortJavaType} ${field.getMethodName}() {
+        return ${field.propertyName};
+    }
+
+    public void ${field.setMethodName}(${field.shortJavaType} ${field.propertyName}) {
+        this.${field.propertyName} = ${field.propertyName};
+    }
+    <% } %>
+<% } %>
+<% if(!config.enableLombok){ %>
+
+    @Override
+    public String toString() {
+        return "${config.dtoName}{" +
+    <% for(field in config.fields){ %>
+       <% if(fieldLP.index==0){ %>
+        "${field.propertyName}=" + ${field.propertyName} +
+       <% }else{ %>
+        ", ${field.propertyName}=" + ${field.propertyName} +
+       <% } %>
+    <% } %>
+        "}";
+    }
+<% } %>
+}

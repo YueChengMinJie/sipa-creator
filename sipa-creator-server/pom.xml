@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.sipa.tcp.creator</groupId>
+        <artifactId>sipa-creator</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>sipa-creator-server</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <!-- dev -->
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>provided</scope>
+		</dependency>
+        <!-- project -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ibeetl</groupId>
+            <artifactId>beetl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.jsqlparser</groupId>
+            <artifactId>jsqlparser</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.javaparser</groupId>
+            <artifactId>javaparser-symbol-solver-core</artifactId>
+        </dependency>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+		</dependency>
+        <!-- 中台框架 -->
+        <dependency>
+            <groupId>com.sipa.boot</groupId>
+            <artifactId>sipa-boot-mvc-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sipa.boot</groupId>
+            <artifactId>sipa-boot-mybatis-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sipa.boot</groupId>
+            <artifactId>sipa-boot-nacos-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sipa.boot</groupId>
+            <artifactId>sipa-boot-secure-ssr-starter</artifactId>
+        </dependency>
+        <!-- 测试 -->
+        <dependency>
+            <groupId>com.sipa.boot</groupId>
+            <artifactId>sipa-boot-test-container-starter</artifactId>
+        </dependency>
+    </dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+            </plugin>
+		</plugins>
+	</build>
+</project>

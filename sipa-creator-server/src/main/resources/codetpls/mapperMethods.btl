@@ -1,0 +1,10 @@
+<% if(elementType == 'select'){ %>
+    <% if(config.resultMap != null){ %>
+       <select id="${config.mapperElementId}" resultMap="${config.resultMap}">
+    <% }%>
+    <% if(config.resultMap == null){ %>
+       <select id="${config.mapperElementId}" resultType="${config.resultType}">
+    <% }%>
+            ${sql}
+       </select>
+<% } %>

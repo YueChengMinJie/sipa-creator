@@ -1,0 +1,74 @@
+package ${customFile.packageName};
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
+<% if(isNotEmpty(controllerMethods.list)){ %>
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+<% } %>
+<% if(restControllerStyle){ %>
+import com.sipa.boot.core.allinone.SipaRequest;
+import com.sipa.boot.feign.allinone.SipaApi;
+<% } %>
+<% if(isNotEmpty(controllerMethods.hasMethod)){ %>
+import ${package.Entity}.${table.entityName};
+<% } %>
+
+/**
+ * @author ${author}
+ * @date ${date}
+ */
+@SipaApi(tag = "${table.entityName}控制器", name = "${tenant}", contextId = "${entityNameCamel}Api",
+    path = ${table.entityName}Api.MappingConstant.PATH)
+public interface ${table.entityName}Api {
+    interface MappingConstant {
+        String PATH = "<% if(isNotEmpty(package.ModuleName)){ %>/${package.ModuleName}<% } %>/<% if(isNotEmpty(controllerMappingHyphenStyle)){ %>${controllerMappingHyphen}<% }else{ %>${table.entityPath}<% } %>";
+        <% if(isNotEmpty(controllerMethods.list)){  %>
+
+        String PAGE = "";
+        <% } %>
+        <% if(isNotEmpty(controllerMethods.getById)){ %>
+
+        String DETAIL = "/{id}";
+        <% } %>
+        <% if(isNotEmpty(controllerMethods.create)){ %>
+
+        String CREATE = "";
+        <% } %>
+        <% if(isNotEmpty(controllerMethods.delete)){ %>
+
+        String DELETE = "/{id}";
+        <% } %>
+        <% if(isNotEmpty(controllerMethods.update)){ %>
+
+        String UPDATE = "";
+        <% } %>
+    }
+    <% if(isNotEmpty(controllerMethods.list)){  %>
+
+    @SipaRequest.GetMapping(summary = "分页查询", path = MappingConstant.PAGE)
+    Page<Message> list(@RequestParam(required = false) Integer current,
+        @RequestParam(required = false) Integer pageSize);
+    <% } %>
+    <% if(isNotEmpty(controllerMethods.getById)){ %>
+
+    @SipaRequest.GetMapping(summary = "详情", path = MappingConstant.DETAIL)
+    ${table.entityName} getById(@PathVariable("id") String id);
+    <% } %>
+    <% if(isNotEmpty(controllerMethods.create)){ %>
+
+    @SipaRequest.PostMapping(summary = "新增", path = MappingConstant.CREATE)
+    Object create(@RequestBody ${table.entityName} payload);
+    <% } %>
+    <% if(isNotEmpty(controllerMethods.delete)){ %>
+
+    @SipaRequest.DeleteMapping(summary = "删除", path = MappingConstant.DELETE)
+    Object delete(@PathVariable("id") String id);
+    <% } %>
+    <% if(isNotEmpty(controllerMethods.update)){ %>
+
+    @SipaRequest.PutMapping(summary = "更新", path = MappingConstant.UPDATE)
+    Object update(@RequestBody ${table.entityName} payload);
+    <% } %>
+}

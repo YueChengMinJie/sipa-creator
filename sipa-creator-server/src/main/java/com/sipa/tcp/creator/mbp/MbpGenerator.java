@@ -157,7 +157,7 @@ public class MbpGenerator {
             for (String method : genSetting.getChoosedControllerMethods()) {
                 controllerMethodsVar.put(method, true);
             }
-            if (controllerMethodsVar.size() > 0) {
+            if (!controllerMethodsVar.isEmpty()) {
                 controllerMethodsVar.put("hasMethod", true);
             }
             vars.put("controllerMethods", controllerMethodsVar);
@@ -165,6 +165,10 @@ public class MbpGenerator {
                 vars.put("schemaName", generatorConfigProperty.getSchemaName() + ".");
             }
             vars.put("tenant", tenant);
+            // 目录
+            Map<String, Object> o1 = (Map)objectMap.get("package");
+            String o2 = (String)o1.get("Entity");
+            vars.put("packageParent", o2.substring(0, o2.indexOf(".entity")));
             objectMap.putAll(vars);
 
             // 删除

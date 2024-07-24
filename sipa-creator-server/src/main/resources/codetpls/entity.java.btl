@@ -3,6 +3,7 @@ package ${package.Entity};
 <% for(pkg in table.importPackages){ %>
 import ${pkg};
 <% } %>
+
 <% if(springdoc){ %>
 import io.swagger.v3.oas.annotations.media.Schema;
 <% }else if(swagger){ %>
@@ -29,9 +30,9 @@ import lombok.experimental.Accessors;
     <% } %>
 <% } %>
 <% if(springdoc){ %>
-@Schema(description = "${entity}实体")
+@Schema(description = "${tableInfoComment}")
 <% }else if(swagger){ %>
-@ApiModel(description = "${entity}实体")
+@ApiModel(description = "${tableInfoComment}")
 <% } %>
 <% if(isNotEmpty(superEntityClass)){ %>
 public class ${entity} extends ${superEntityClass}<% if(activeRecord){ %><${entity}><%}%> {

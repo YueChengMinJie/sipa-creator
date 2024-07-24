@@ -4,25 +4,23 @@ package ${package.Controller};
 import javax.annotation.Resource;
 <% } %>
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-
 <% if(isNotEmpty(controllerMethods.list)){  %>
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 <% } %>
-import com.sipa.boot.core.allinone.SipaRequest;
+import com.sipa.boot.core.pojo.form.IdsForm;
 import com.sipa.boot.mvc.allinone.SipaRest;
 <% if(isNotEmpty(superControllerClassPackage)){ %>
 import ${superControllerClassPackage};
 <% } %>
 <% if(restControllerStyle){ %>
-import ${customFile.packageName}.${table.entityName}Api;
+import ${packageParent}.api.${table.entityName}Api;
 <% } %>
+import ${packageParent}.form.${table.entityName}Form;
+import ${packageParent}.form.${table.entityName}PageForm;
 <% if(isNotEmpty(controllerMethods.hasMethod)){  %>
-import ${package.Entity}.${table.entityName};
 import ${package.Service}.${table.serviceName};
 <% } %>
+import ${packageParent}.vo.${table.entityName}Vo;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,7 +30,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 <% if(restControllerStyle){ %>
-@SipaRest(tag = "${table.entityName}控制器", path = ${table.entityName}Api.MappingConstant.PATH)
+@SipaRest(tag = "${tableInfoComment}", path = ${table.entityName}Api.MappingConstant.PATH)
 <% } %>
 <% if(kotlin){ %>
 class ${table.controllerName}<% if(isNotEmpty(superControllerClass)){ %> : ${superControllerClass}()<% } %>
@@ -52,51 +50,36 @@ public class ${table.controllerName} implements ${table.entityName}Api {
     <% if(isNotEmpty(controllerMethods.list)){  %>
 
     @Override
-    @SipaRequest.GetMapping(summary = "分页查询", path = MappingConstant.PAGE)
-    public Page<${table.entityName}> list(@RequestParam(required = false) Integer current,
-        @RequestParam(required = false) Integer pageSize) {
-        if (current == null) {
-            current = 1;
-        }
-        if (pageSize == null) {
-            pageSize = 10;
-        }
-        return ${serviceInstanceName}.page(new Page<>(current, pageSize));
+    public Page<${table.entityName}Vo> list(${entity}PageForm form) {
+        return null;
     }
     <% } %>
     <% if(isNotEmpty(controllerMethods.getById)){ %>
 
     @Override
-    @SipaRequest.GetMapping(summary = "详情", path = MappingConstant.DETAIL)
-    public ${table.entityName} getById(@PathVariable("id") String id) {
-        return ${serviceInstanceName}.getById(id);
+    public ${table.entityName}Vo getById(String id) {
+        return null;
     }
     <% } %>
     <% if(isNotEmpty(controllerMethods.create)){ %>
 
     @Override
-    @SipaRequest.PostMapping(summary = "新增", path = MappingConstant.CREATE)
-    public Object create(@RequestBody ${table.entityName} payload) {
-        ${serviceInstanceName}.save(payload);
-        return "created successfully";
+    public Object create(${table.entityName}Form form) {
+        return null;
     }
     <% } %>
     <% if(isNotEmpty(controllerMethods.delete)){ %>
 
     @Override
-    @SipaRequest.DeleteMapping(summary = "删除", path = MappingConstant.DELETE)
-    public Object delete(@PathVariable("id") String id) {
-        ${serviceInstanceName}.removeById(id);
-        return "deleted successfully";
+    public Object delete(IdsForm form) {
+        return null;
     }
     <% } %>
     <% if(isNotEmpty(controllerMethods.update)){ %>
 
     @Override
-    @SipaRequest.PutMapping(summary = "更新", path = MappingConstant.UPDATE)
-    public Object update(@RequestBody ${table.entityName} payload) {
-        ${serviceInstanceName}.updateById(payload);
-        return "updated successfully";
+    public Object update(${table.entityName}Form form) {
+        return null;
     }
     <% } %>
 }

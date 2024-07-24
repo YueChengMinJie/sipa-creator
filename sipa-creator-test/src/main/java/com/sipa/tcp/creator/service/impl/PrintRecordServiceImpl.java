@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author caszhou
- * @date 2024-07-23
+ * @date 2024-07-24
  */
 @Service
 public class PrintRecordServiceImpl extends ServiceImpl<PrintRecordMapper, PrintRecord> implements PrintRecordService {

@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
  * @author caszhou
- * @date 2024-07-23
+ * @date 2024-07-24
  */
 public interface PrintTemplateMapper extends BaseMapper<PrintTemplate> {
 

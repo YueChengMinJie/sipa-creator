@@ -1,0 +1,43 @@
+package ${customFile.packageName};
+
+import com.sipa.boot.core.pojo.form.PageForm;
+
+<% if(springdoc){ %>
+import io.swagger.v3.oas.annotations.media.Schema;
+<% }else if(swagger){ %>
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+<% } %>
+<% if(entityLombokModel){ %>
+import lombok.Getter;
+import lombok.Setter;
+<% } %>
+
+/**
+ * @author ${author}
+ * @date ${date}
+ */
+<% if(entityLombokModel){ %>
+@Getter
+@Setter
+<% } %>
+<% if(springdoc){ %>
+@Schema(description = "${tableInfoComment}")
+<% }else if(swagger){ %>
+@ApiModel(description = "${tableInfoComment}")
+<% } %>
+public class ${entity}PageForm extends PageForm {
+<% for(field in table.fields){ %>
+
+    <% if(springdoc){ %>
+    @Schema(description = "${field.comment}")
+    <% }else if(swagger){ %>
+    @ApiModelProperty(value = "${field.comment}")
+    <% }else{ %>
+    /**
+     * ${field.comment}
+     */
+    <% } %>
+    private ${field.propertyType} ${field.propertyName};
+<% } %>
+}

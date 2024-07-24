@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * @author caszhou
- * @date 2024-07-23
+ * @date 2024-07-24
  */
 public interface PrintPrinterService extends IService<PrintPrinter> {
 

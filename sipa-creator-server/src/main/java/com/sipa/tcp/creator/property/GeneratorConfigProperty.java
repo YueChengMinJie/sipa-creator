@@ -1,11 +1,16 @@
 package com.sipa.tcp.creator.property;
 
+import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.config.ITypeConvert;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
+import com.google.common.collect.Maps;
+import com.sipa.boot.core.exception.system.SystemExceptionFactory;
 import com.sipa.tcp.creator.mbp.NameConverter;
 import com.sipa.tcp.creator.mbp.TemplateVariableInjector;
 
@@ -40,7 +45,14 @@ public class GeneratorConfigProperty {
     /**
      * 注入自定义模板参数
      */
-    private TemplateVariableInjector templateVariableInjector;
+    private TemplateVariableInjector templateVariableInjector = tableInfo -> {
+        Map<String, Object> variables = Maps.newHashMap();
+        if (StringUtils.isBlank(tableInfo.getComment())) {
+            throw SystemExceptionFactory.bizException("表需要有诸事");
+        }
+        variables.put("tableInfoComment", tableInfo.getComment());
+        return variables;
+    };
 
     /**
      * 表前缀, 如果设置后会在生成entity名称时去掉该后缀

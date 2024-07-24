@@ -1,11 +1,10 @@
-package com.sipa.tcp.creator.entity;
+package com.sipa.tcp.creator.vo;
 
-import com.sipa.boot.core.pojo.po.BasePo;
+import java.io.Serializable;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 
 /**
  * @author caszhou
@@ -13,9 +12,8 @@ import lombok.experimental.Accessors;
  */
 @Getter
 @Setter
-@Accessors(chain = true)
 @Schema(description = "打印记录")
-public class PrintRecord extends BasePo {
+public class PrintRecordVo implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Schema(description = "应用id")

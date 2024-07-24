@@ -197,10 +197,34 @@ public class UserConfigStore implements InitializingBean {
         OutputFileInfo apiFile = new OutputFileInfo();
         apiFile.setBuiltIn(false);
         apiFile.setFileType(CreatorConstant.FILE_TYPE_API);
-        apiFile.setOutputLocation(PathUtil.joinPackage(pathResolver.getBasePackage(), "api"));
+        apiFile.setOutputLocation(pathResolver.resolveApiPackage());
         apiFile.setTemplateName(TemplateUtil.fileType2TemplateName(apiFile.getFileType()));
         apiFile.setTemplatePath(CreatorConstant.RESOURCE_PREFIX_CLASSPATH + "codetpls/api.java.btl");
         builtInFiles.add(apiFile);
+        // Form
+        OutputFileInfo formFile = new OutputFileInfo();
+        formFile.setBuiltIn(false);
+        formFile.setFileType(CreatorConstant.FILE_TYPE_FORM);
+        formFile.setOutputLocation(pathResolver.resolveFormPackage());
+        formFile.setTemplateName(TemplateUtil.fileType2TemplateName(formFile.getFileType()));
+        formFile.setTemplatePath(CreatorConstant.RESOURCE_PREFIX_CLASSPATH + "codetpls/form.java.btl");
+        builtInFiles.add(formFile);
+        // Page Form
+        OutputFileInfo pageFormFile = new OutputFileInfo();
+        pageFormFile.setBuiltIn(false);
+        pageFormFile.setFileType(CreatorConstant.FILE_TYPE_PAGE_FORM);
+        pageFormFile.setOutputLocation(pathResolver.resolveFormPackage());
+        pageFormFile.setTemplateName(TemplateUtil.fileType2TemplateName(pageFormFile.getFileType()));
+        pageFormFile.setTemplatePath(CreatorConstant.RESOURCE_PREFIX_CLASSPATH + "codetpls/pageForm.java.btl");
+        builtInFiles.add(pageFormFile);
+        // Vo
+        OutputFileInfo voFile = new OutputFileInfo();
+        voFile.setBuiltIn(false);
+        voFile.setFileType(CreatorConstant.FILE_TYPE_VO);
+        voFile.setOutputLocation(pathResolver.resolveVoPackage());
+        voFile.setTemplateName(TemplateUtil.fileType2TemplateName(voFile.getFileType()));
+        voFile.setTemplatePath(CreatorConstant.RESOURCE_PREFIX_CLASSPATH + "codetpls/vo.java.btl");
+        builtInFiles.add(voFile);
         // Controller
         OutputFileInfo controllerFile = new OutputFileInfo();
         controllerFile.setBuiltIn(true);

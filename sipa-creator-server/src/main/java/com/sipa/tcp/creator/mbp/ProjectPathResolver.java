@@ -127,4 +127,16 @@ public class ProjectPathResolver {
             new File(basePath + File.separator + "src/main/resources".replace("/", File.separator)).toString();
         return new Tuple(basePath, sourcePath, resourcePath);
     }
+
+    public String resolveApiPackage() {
+        return PathUtil.joinPackage(basePackage, "api");
+    }
+
+    public String resolveFormPackage() {
+        return PathUtil.joinPackage(basePackage, "form");
+    }
+
+    public String resolveVoPackage() {
+        return PathUtil.joinPackage(basePackage, "vo");
+    }
 }

@@ -1,11 +1,10 @@
-package com.sipa.tcp.creator.entity;
+package com.sipa.tcp.creator.form;
 
-import com.sipa.boot.core.pojo.po.BasePo;
+import com.sipa.boot.core.pojo.form.PageForm;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 
 /**
  * @author caszhou
@@ -13,10 +12,8 @@ import lombok.experimental.Accessors;
  */
 @Getter
 @Setter
-@Accessors(chain = true)
 @Schema(description = "打印模版")
-public class PrintTemplate extends BasePo {
-    private static final long serialVersionUID = 1L;
+public class PrintTemplatePageForm extends PageForm {
 
     @Schema(description = "号码")
     private String code;

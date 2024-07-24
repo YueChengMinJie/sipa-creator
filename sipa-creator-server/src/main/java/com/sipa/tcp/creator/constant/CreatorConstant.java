@@ -27,6 +27,12 @@ public interface CreatorConstant {
 
     String FILE_TYPE_API = "Api";
 
+    String FILE_TYPE_VO = "Vo";
+
+    String FILE_TYPE_FORM = "Form";
+
+    String FILE_TYPE_PAGE_FORM = "PageForm";
+
     String FILE_TYPE_CONTROLLER = "Controller";
 
     String FILE_TYPE_MAPPER_XML = "Mapper.xml";

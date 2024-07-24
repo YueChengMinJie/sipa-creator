@@ -50,7 +50,7 @@ public class ${table.controllerName} implements ${table.entityName}Api {
     <% if(isNotEmpty(controllerMethods.list)){  %>
 
     @Override
-    public Page<${table.entityName}Vo> list(${entity}PageForm form) {
+    public Page<${table.entityName}Vo> page(${entity}PageForm form) {
         return null;
     }
     <% } %>

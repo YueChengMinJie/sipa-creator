@@ -54,7 +54,7 @@ public interface ${table.entityName}Api {
     <% if(isNotEmpty(controllerMethods.list)){  %>
 
     @SipaRequest.PostMapping(summary = "分页查询", path = MappingConstant.PAGE)
-    Page<${table.entityName}Vo> list(@RequestBody @Valid ${entity}PageForm form);
+    Page<${table.entityName}Vo> page(@RequestBody @Valid ${entity}PageForm form);
     <% } %>
     <% if(isNotEmpty(controllerMethods.getById)){ %>
 

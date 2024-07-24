@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2024-07-24
  */
 @Slf4j
-@SipaRest(tag = "打印记录", path = PrintRecordApi.MappingConstant.PATH)
+@SipaRest(tag = PrintRecordApi.MappingConstant.TAG, path = PrintRecordApi.MappingConstant.PATH)
 public class PrintRecordController implements PrintRecordApi {
     @Resource
     private PrintRecordService printRecordService;

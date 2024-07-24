@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2024-07-24
  */
 @Slf4j
-@SipaRest(tag = "打印模版", path = PrintTemplateApi.MappingConstant.PATH)
+@SipaRest(tag = PrintTemplateApi.MappingConstant.TAG, path = PrintTemplateApi.MappingConstant.PATH)
 public class PrintTemplateController implements PrintTemplateApi {
     @Resource
     private PrintTemplateService printTemplateService;

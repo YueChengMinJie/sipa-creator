@@ -1,0 +1,177 @@
+/** 公共模板样式 */
+
+// 超出省略
+.app-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 自定义便捷外边距
+.app-ml10 {
+  margin-left: 10px;
+}
+
+.app-mr10 {
+  margin-right: 10px;
+}
+
+.app-mt10 {
+  margin-top: 10px;
+}
+
+.app-mb10 {
+  margin-bottom: 10px;
+}
+
+// 错误提醒url的样式
+.app-code {
+  background-color: #f9fafc;
+  padding: 0 4px;
+  border: 1px solid #eaeefb;
+  border-radius: 4px;
+}
+
+// 公共容器
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 15px 15px 15px 15px;
+  color: #333;
+  position: relative;
+  overflow: auto;
+}
+
+// 公共头部
+.app-header {
+  padding: 5px 0 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #dcdfe6;
+
+  .el-page-header__left {
+    flex-shrink: 0;
+    align-items: center;
+  }
+  .el-page-header__content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.app-main {
+  flex: 1;
+  overflow: auto;
+}
+
+.app-footer {
+  padding-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #dcdfe6;
+}
+
+// 公共头部的部分功能样式
+.app-part {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  line-height: 32px;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+
+  .app-item {
+    display: flex;
+    align-items: center;
+    padding: 2.5px 10px 2.5px 0;
+  }
+}
+// 公共表格
+.app-table {
+  flex: 1;
+  overflow: hidden;
+
+  .el-link {
+    font-size: 12px;
+  }
+  .operate {
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+    // 表格里居中icon
+    i {
+      line-height: 23px;
+    }
+  }
+  .operate-more {
+    font-size: 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    color: #409eff;
+    position: relative;
+    top: 1px;
+  }
+}
+
+// 分页
+.app-pagination {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  padding: 10px 0 0;
+  width: 100%;
+}
+
+.app-row {
+  display: flex;
+  align-items: flex-start;
+
+  .app-col {
+    flex: 1;
+  }
+}
+
+// dialog样式
+.dialog-container {
+  max-height: 55vh;
+  overflow: auto;
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+// 复合模板 公共样式
+.app-composite {
+  display: flex;
+  height: 100%;
+
+  .app-shrink {
+    width: 24px;
+    top: 45%;
+    left: 0;
+    position: absolute;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 13px;
+    text-align: center;
+    padding: 10px 0;
+    cursor: pointer;
+    color: #409eff;
+    z-index: 9;
+    line-height: 1.5em;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 5px 0px rgba(238, 238, 238, 1);
+  }
+}

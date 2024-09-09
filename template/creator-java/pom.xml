@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.sipa.boot</groupId>
+        <artifactId>sipa-boot-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.hmev.tcp</groupId>
+    <artifactId>creator-java</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>creator-java-adapter</module>
+        <module>creator-java-app</module>
+        <module>creator-java-client</module>
+        <module>creator-java-domain</module>
+        <module>creator-java-infrastructure</module>
+        <module>creator-java-server</module>
+    </modules>
+
+    <scm>
+        <connection>scm:${project.scm.type}:${project.scm.path}</connection>
+        <developerConnection>scm:${project.scm.type}:${project.scm.path}</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <properties>
+        <project.scm.path>git@192.168.0.62:platform/tcp/creator/creator-java.git</project.scm.path>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.hmev.tcp</groupId>
+                <artifactId>creator-java-adapter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hmev.tcp</groupId>
+                <artifactId>creator-java-app</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hmev.tcp</groupId>
+                <artifactId>creator-java-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hmev.tcp</groupId>
+                <artifactId>creator-java-domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hmev.tcp</groupId>
+                <artifactId>creator-java-infrastructure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sipa.boot</groupId>
+            <artifactId>sipa-boot-test-container-starter</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>com.diffplug.spotless</groupId>
+                <artifactId>spotless-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.hmev.tcp</groupId>
+        <artifactId>creator-java</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>creator-java-server</artifactId>
+
+    <properties>
+        <project.runtime.main_class>com.hmev.tcp.creator.CreatorApplication</project.runtime.main_class>
+        <project.runtime.mem_init>2048M</project.runtime.mem_init>
+        <project.runtime.mem_max>2048M</project.runtime.mem_max>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.hmev.tcp</groupId>
+            <artifactId>creator-java-adapter</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>appassembler-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

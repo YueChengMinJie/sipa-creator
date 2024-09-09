@@ -1,0 +1,10 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "htmlWhitespaceSensitivity": "ignore",
+  "printWidth": 120,
+  "prettier.arrowParens": "avoid",
+  "arrowParens": "avoid",
+  "endOfLine": "auto"
+}

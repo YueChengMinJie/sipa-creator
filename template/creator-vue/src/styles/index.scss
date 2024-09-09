@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  min-width: 992px;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+  font-weight: 400;
+  background: #f7f7f7;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+#nprogress .bar {
+  background: #409eff !important; //自定义颜色
+}
+
+// 修正element ui 的样式问题
+.el-date-editor .el-range-separator {
+  width: auto;
+}
+.el-upload-list__item-thumbnail {
+  object-fit: contain;
+}
+.el-upload-list__item-name {
+  white-space: initial;
+}
+// 换行
+.el-notification__content p {
+  word-break: break-all;
+}
+.el-upload-list__item,
+.el-upload--picture-card,
+.el-upload-list--picture-card .el-upload-list__item-actions {
+  transition: none;
+}
+.el-upload-list--picture-card {
+  line-height: 0;
+}
+.el-upload--picture-card {
+  margin: 0 8px 8px 0;
+}
+.el-upload__tip {
+  margin-top: 0;
+}
+// 抽屉样式
+.el-drawer__header > :first-child {
+  outline: none;
+}
+.el-dropdown .el-dropdown-selfdefine:focus:active {
+  outline: none;
+}
+.is-fullscreen {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .el-dialog__body {
+    flex: 1;
+    overflow: auto;
+  }
+}
+
+// 图片预览样式
+.el-image-viewer__close {
+  color: #fff;
+}
+
+.el-menu--collapse .child-menu .el-menu-item span,
+.el-menu--collapse .child-menu .el-submenu > .el-submenu__title span {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  visibility: hidden;
+  display: inline-block;
+}
+.el-menu--collapse .child-menu .el-submenu__icon-arrow,
+.el-menu--collapse > .el-submenu .child-menu .el-submenu__title .el-submenu__icon-arrow {
+  display: none;
+}
+.el-slider__runway {
+  margin: 14px 0;
+}
+
+.el-drawer:focus {
+  outline: none;
+}
+
+.el-menu--vertical .child-menu {
+  .custom-link {
+    outline: 0;
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+// 自定义页面过渡
+
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+  transition: all 0.5s;
+}
+
+.fade-transform-enter {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.fade-transform-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+@import './main.scss';

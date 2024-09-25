@@ -8,7 +8,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.hmev.tcp</groupId>
+    <groupId>com.sipa.tcp</groupId>
     <artifactId>creator-java</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -35,27 +35,27 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.hmev.tcp</groupId>
+                <groupId>com.sipa.tcp</groupId>
                 <artifactId>creator-java-adapter</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.hmev.tcp</groupId>
+                <groupId>com.sipa.tcp</groupId>
                 <artifactId>creator-java-app</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.hmev.tcp</groupId>
+                <groupId>com.sipa.tcp</groupId>
                 <artifactId>creator-java-client</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.hmev.tcp</groupId>
+                <groupId>com.sipa.tcp</groupId>
                 <artifactId>creator-java-domain</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.hmev.tcp</groupId>
+                <groupId>com.sipa.tcp</groupId>
                 <artifactId>creator-java-infrastructure</artifactId>
                 <version>${project.version}</version>
             </dependency>

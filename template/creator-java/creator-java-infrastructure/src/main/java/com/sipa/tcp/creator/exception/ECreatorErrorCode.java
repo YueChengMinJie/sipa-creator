@@ -1,4 +1,4 @@
-package com.hmev.tcp.creator.exception;
+package com.sipa.tcp.creator.exception;
 
 import com.sipa.boot.core.constant.SipaConstant;
 import com.sipa.boot.core.exception.EProjectModule;

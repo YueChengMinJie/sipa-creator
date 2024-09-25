@@ -32,7 +32,7 @@ public interface ${table.entityName}Api {
         String TAG = "${tableInfoComment}";
         <% if(isNotEmpty(controllerMethods.list)){  %>
 
-        String PAGE = "page";
+        String PAGE = "/page";
         <% } %>
         <% if(isNotEmpty(controllerMethods.getById)){ %>
 

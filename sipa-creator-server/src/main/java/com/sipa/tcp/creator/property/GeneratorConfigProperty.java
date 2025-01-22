@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.config.ITypeConvert;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.google.common.collect.Maps;
+import com.sipa.boot.core.exception.system.ESystemErrorCode;
 import com.sipa.boot.core.exception.system.SystemExceptionFactory;
 import com.sipa.tcp.creator.mbp.NameConverter;
 import com.sipa.tcp.creator.mbp.TemplateVariableInjector;
@@ -48,7 +49,7 @@ public class GeneratorConfigProperty {
     private TemplateVariableInjector templateVariableInjector = tableInfo -> {
         Map<String, Object> variables = Maps.newHashMap();
         if (StringUtils.isBlank(tableInfo.getComment())) {
-            throw SystemExceptionFactory.bizException("表需要有诸事");
+            throw SystemExceptionFactory.bizException(ESystemErrorCode.TABLE_NEED_COMMENT);
         }
         variables.put("tableInfoComment", tableInfo.getComment());
         return variables;
